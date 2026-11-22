@@ -1,0 +1,8 @@
+# Mapeamento semântico
+O agente de IA associa todos os elementos do design considerando hierarquia, função, tags, classes, geometria relativa e evidências estáticas. IDs runtime devem vir da mesma coleta. Não associe por texto de mock ou somente por proximidade. Exija correspondência única e confiável; ambiguidades e elementos obrigatórios ausentes ficam inconclusivos. Para listas, selecione representante por padrão visual; exclua outras instâncias somente com evidência de repetição equivalente. Estados ausentes só são não aplicáveis com evidência de condicional. Grupos decorativos sem equivalente DOM exigem justificativa.
+
+Contrato de mapping.json:
+```json
+{"context":{"route":"/praticar","state":"inicial"},"staticStatus":"completed","staticReason":"","staticEvidence":[{"nodeId":"1:2","property":"padding-top","file":"src/Chat.css","line":12,"explanation":"Padding declarado no componente Chat"}],"matches":[{"nodeId":"1:2","runtimeId":"e5","confidence":"high","reason":"Mesma função e hierarquia"}],"excluded":[{"nodeId":"1:3","reason":"Instância repetida de mensagem dinâmica com estilo equivalente","kind":"repeated"}]}
+```
+Exemplo ilustrativo, não copie como evidência. Kinds permitidos: repeated, conditional, decorative. Cada exclusão exige justificativa. Para correspondência incerta, deixe o elemento sem associação; o motor registra inconclusivo. Não duplique IDs nem associe e exclua o mesmo elemento. Contexto obrigatório: route e state estáveis, confirmados, sem query strings, credenciais ou dados pessoais. Não invente propriedades ou evidências. Não confunda pilha CSS com fonte efetivamente utilizada. Compare geometria somente com viewport equivalente.
