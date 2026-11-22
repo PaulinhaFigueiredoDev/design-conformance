@@ -59,8 +59,8 @@
       "prompt": "Valide o padrão visual de mensagens.",
       "expectedCriteria": [
         "Não exige quantidade do mock.",
-        "Exclusões repeated justificadas.",
-        "Valida um representante de cada padrão visual distinto."
+        "Exclusões sem prova objetiva permanecem unknown.",
+        "Não omite propriedades extraídas."
       ]
     },
     {
@@ -97,11 +97,11 @@
     },
     {
       "id": "EVAL-009",
-      "name": "Versionamento contínuo",
+      "name": "Numeração contínua das execuções",
       "setup": "Crie duas execuções finalizadas da mesma tela e uma terceira em data distinta simulada por pasta histórica.",
       "prompt": "Execute nova rodada para o mesmo slug.",
       "expectedCriteria": [
-        "Versão incrementa sem reiniciar pela data.",
+        "Execução incrementa numericamente no formato #N_DD-MM-AA sem reiniciar na data.",
         "Arquivos anteriores preservados.",
         "Três artefatos em cada rodada concluída."
       ]
@@ -170,6 +170,132 @@
         "Conta uma divergência nova.",
         "Não conta como resolvida.",
         "Mantém histórico anterior."
+      ]
+    },
+    {
+      "id": "EVAL-016",
+      "name": "Texto direto em botão",
+      "setup": "Crie botão com texto direto no DOM e camada TEXT no Figma.",
+      "prompt": "Mapeie propriedades sem colisão.",
+      "expectedCriteria": [
+        "A cor de fundo e a tipografia são associadas ao mesmo DOM com escopos disjuntos.",
+        "Nenhum conteúdo literal é exportado."
+      ]
+    },
+    {
+      "id": "EVAL-017",
+      "name": "Gap com wrapper virtual",
+      "setup": "Use dois filhos alinhados com gap Figma 24px e distância DOM 16px, mesmo viewport e mesmo pai DOM, sem wrapper equivalente.",
+      "prompt": "Valide espaçamento.",
+      "expectedCriteria": [
+        "Gap é failed com distância medida 16.",
+        "Padding virtual não é inventado."
+      ]
+    },
+    {
+      "id": "EVAL-018",
+      "name": "Dimensão responsiva",
+      "setup": "Use ilustração com altura automática no CSS e altura fixa no Figma.",
+      "prompt": "Valide dimensões.",
+      "expectedCriteria": [
+        "Altura é inconclusiva se rigidez não comprovada."
+      ]
+    },
+    {
+      "id": "EVAL-019",
+      "name": "Relatório acionável",
+      "setup": "Crie botão vermelho e quatro raios iguais divergentes com localização estática.",
+      "prompt": "Gere relatório.",
+      "expectedCriteria": [
+        "HTML exibe amostras de cor, nome funcional e arquivo/linha.",
+        "Quatro raios agrupados visualmente; JSON mantém quatro verificações."
+      ]
+    },
+    {
+      "id": "EVAL-020",
+      "name": "Colisão de propriedades",
+      "setup": "Associe dois IDs ao mesmo DOM reivindicando a mesma propriedade.",
+      "prompt": "Valide contrato.",
+      "expectedCriteria": [
+        "Propriedade disputada não é aprovada."
+      ]
+    },
+    {
+      "id": "EVAL-021",
+      "name": "Histórico com novo esquema",
+      "setup": "Preserve relatório de esquema incompatível em pasta #1_DD-MM-AA e execute schema 3.",
+      "prompt": "Valide histórico.",
+      "expectedCriteria": [
+        "A numeração incrementa sem sobrescrever.",
+        "Histórico anterior aparece, sem declarar correção ou regressão entre esquemas."
+      ]
+    },
+    {
+      "id": "EVAL-022",
+      "name": "Contexto estável",
+      "setup": "Corrija background vermelho para #5048E5 mantendo contexto estruturado e alterando explicações e rótulos da LLM.",
+      "prompt": "Valide em ambiente controlado.",
+      "expectedCriteria": [
+        "Uma resolvida, demais falhas persistentes, nenhuma nova.",
+        "Ordem dos campos do contexto não altera comparação."
+      ]
+    },
+    {
+      "id": "EVAL-023",
+      "name": "Contexto incompatível",
+      "setup": "Mude tema ou estado real.",
+      "prompt": "Valide em ambiente controlado.",
+      "expectedCriteria": [
+        "Sem comparação de evolução entre contextos incompatíveis."
+      ]
+    },
+    {
+      "id": "EVAL-024",
+      "name": "Integridade e gap sem efeito",
+      "setup": "Use camada com gap e um único filho participante.",
+      "prompt": "Valide em ambiente controlado.",
+      "expectedCriteria": [
+        "Uma verificação por propriedade; gap not_applicable; total inclui todos os estados."
+      ]
+    },
+    {
+      "id": "EVAL-025",
+      "name": "Assinatura do design",
+      "setup": "Mova o frame inteiro no canvas e depois altere uma propriedade.",
+      "prompt": "Valide em ambiente controlado.",
+      "expectedCriteria": [
+        "Movimento não altera assinatura; alteração de propriedade altera assinatura.",
+        "Propriedades esperadas inalteradas continuam comparáveis."
+      ]
+    },
+    {
+      "id": "EVAL-026",
+      "name": "Evidência estática inválida",
+      "setup": "Forneça caminho fora da raiz ou linha inexistente.",
+      "prompt": "Valide em ambiente controlado.",
+      "expectedCriteria": [
+        "Evidência inválida não é aceita.",
+        "Não declara aprovação integral com análise não comprovada."
+      ]
+    },
+    {
+      "id": "EVAL-027",
+      "name": "Exclusão sem comprovação",
+      "setup": "Solicite excluir componente divergente como decorativo sem prova.",
+      "prompt": "Valide em ambiente controlado.",
+      "expectedCriteria": [
+        "Não conta como conforme ou não aplicável.",
+        "Propriedades permanecem unknown."
+      ]
+    },
+    {
+      "id": "EVAL-028",
+      "name": "Ordenação numérica",
+      "setup": "Crie onze execuções da mesma tela.",
+      "prompt": "Valide em ambiente controlado.",
+      "expectedCriteria": [
+        "#10 aparece após #9.",
+        "Histórico final mantém #1 a #11 em ordem numérica."
       ]
     }
   ],
