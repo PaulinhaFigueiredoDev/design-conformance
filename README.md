@@ -62,7 +62,7 @@ design-conformance/
 │   └── validation-report.html
 ├── evals/
 │   └── evals.json
-└──
+└── README.md
 ```
 
 - `SKILL.md`: ponto de entrada e instruções de orquestração.
@@ -130,15 +130,15 @@ Os artefatos são gerados na raiz do repositório da aplicação:
 ```text
 artifacts/
 └── praticar/
-    ├── v001_21-11-26/
+    ├── #1_21-11-26/
     │   ├── design-spec.json
     │   ├── validation-report.json
     │   └── validation-report.html
-    ├── v002_21-11-26/
+    ├── #2_21-11-26/
     │   ├── design-spec.json
     │   ├── validation-report.json
     │   └── validation-report.html
-    └── v003_22-11-26/
+    └── #3_22-11-26/
         ├── design-spec.json
         ├── validation-report.json
         └── validation-report.html
@@ -150,7 +150,7 @@ artifacts/
 | `validation-report.json` | Resultado estruturado, evidências, metadados e histórico das validações. |
 | `validation-report.html` | Relatório visual em dark mode para consulta no navegador. |
 
-O versionamento é contínuo por tela, no formato `vNNN_DD-MM-AA`. A contagem não reinicia quando a data muda. Execuções anteriores não são sobrescritas; execuções incompletas podem deixar lacunas na numeração e não contam como rodadas concluídas.
+A numeração de execuções é contínua por tela, no formato `#N_DD-MM-AA`. A contagem não reinicia quando a data muda. Execuções anteriores não são sobrescritas; execuções incompletas podem deixar lacunas na numeração e não contam como rodadas concluídas.
 
 ### Design Conformance Report
 
@@ -176,13 +176,10 @@ Os cenários em `evals/evals.json` avaliam a aderência do agente ao protocolo, 
 
 A Skill deve operar em modo de inspeção, sem alterar o código-fonte, instalar dependências, realizar operações de negócio ou encerrar processos iniciados pelo desenvolvedor. O acesso a páginas autenticadas depende de autorização. O token do Figma deve ser utilizado exclusivamente pelo processo de extração e nunca exposto ao agente ou aos relatórios.
 
-## Limitações e status
-
-A solução está em fase de homologação integrada com Figma REST API e Chrome DevTools MCP. A compatibilidade com cada agente depende do suporte a Agent Skills e das ferramentas e permissões disponíveis no ambiente.
-
 ## Referências
 
 - [Agent Skills](https://agentskills.io/)
 - [Figma REST API](https://developers.figma.com/docs/rest-api/)
 - [Chrome DevTools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp)
 - [Node.js](https://nodejs.org/docs/latest-v22.x/api/)
+
