@@ -1,0 +1,7 @@
+{
+  "name": "design-conformance-skill",
+  "private": true,
+  "engines": {"node": ">=24.22.1 <25"},
+  "scripts": {"setup": "figma-delta setup", "doctor": "figma-delta doctor", "validate": "node scripts/validar.mjs"},
+  "devDependencies": {"designspec-kit": "0.1.2", "figma-delta": "0.2.3"}
+}

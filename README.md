@@ -1,5 +1,7 @@
 # Design Conformance
 
+A branch de integração combina designspec e Figma Delta. Consulte o [fluxo integrado](references/validacao-integrada.md) para instalação e execução. A documentação abaixo descreve o protocolo original com Chrome DevTools MCP.
+
 Agent Skill para validar a conformidade visual entre um design no Figma e sua implementação em uma aplicação web.
 
 A solução combina extração de especificações pela Figma REST API, análise estática de código e inspeção da interface em execução pelo Chrome DevTools MCP. O objetivo é identificar divergências relevantes e acompanhar a evolução da conformidade da tela ao longo das rodadas de validação.
